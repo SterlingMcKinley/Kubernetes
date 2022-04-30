@@ -1,3 +1,10 @@
+EXAM components
+
+Multiple choice - 60 questions
+
+90 minutes
+
+
 Kubernetes Fundamentals – 46%
 
 What problem Kubernetes solves?
@@ -10,8 +17,10 @@ What is container, pod, replicaset, service, deployment, configmap, secrets, dae
 Pod - the smallest Kubernetes objects that represents an application. Pods wrapper for one or more containers, which contains not only working application but also some metadata.
 
 Replicaset - A ReplicaSet's purpose is to maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
+
 Service - A service is responsible for enabling network access to a set of pods.
- An abstract way to expose an application running on a set of Pods as a network service.
+ 
+An abstract way to expose an application running on a set of Pods as a network service.
 
 Deployment - A responsible for keeping a set of pods running. A Deployment provides declarative updates for Pods and ReplicaSets.
 
@@ -20,10 +29,15 @@ Configmap - an API object used to store non-confidential data in key-value pairs
 Secret - an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a Podspecification or in a container image. Using a Secret means that you don't need to include confidential data in your application code. Secrets are similar to ConfigMaps but are specifically intended to hold confidential data.
 
 DaemonSet - ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+
 Some typical uses of a DaemonSet are:
+
 •	running a cluster storage daemon on every node
+
 •	running a logs collection daemon on every node
+
 •	running a node monitoring daemon on every node
+
 Ingress - Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.
 
 
@@ -67,7 +81,7 @@ What is kubectl?
 controls the Kubernetes cluster manager
 
 
-What are common Kubernetes commands?
+***What are common Kubernetes commands?***
 
 List one or more pods
 Kubectl get pod
@@ -96,7 +110,7 @@ Kubectl logs -c <container_name> <pod_name>
 
 
 
-What is YAML and JSON?
+***What is YAML and JSON?***
 
 YAML - YAML is a human-readable text-based format that lets you easily specify configuration-type information by using a combination of maps of name-value pairs and lists of items. YAML stands for yet another markup language 
 
@@ -105,20 +119,36 @@ JSON - a "query" language that allows us to filter and format information in env
 
 
 
-Kubernetes Architecture
+***Kubernetes Architecture***
+
+![K8sArchitecture](https://user-images.githubusercontent.com/91057035/166108875-f5cda66c-df29-4ea0-8230-8ce05e41e6e4.png)
 
 
+The components of a Kubernetes Architecture Diagram template are: 
 
+Cloud controller manager: links your cluster to the cloud provider
 
-Kubernetes API
+Controller manager: makes global decisions about the cluster 
 
+Etcd (persistent store): backs store for all cluster data 
+
+Kubelet: runs each node in the cluster 
+
+Kube proxy: network proxy that runs in each node of the cluster 
+
+Scheduler: watches for newly created Pods with no assigned node, and selects a node for them to run on 
+
+Control place: runs controller processes 
+
+Node: provides Kubernetes runtime environment 
+
+***Kubernetes API***
 The core of Kubernetes' control plane is the API server. The API server exposes an HTTP API that lets end users, different parts of your cluster, and external components communicate with one another.
 The Kubernetes API lets you query and manipulate the state of API objects in Kubernetes (for example: Pods, Namespaces, ConfigMaps, and Events).
 
 
 
-
-Scheduling
+***Scheduling***
 In Kubernetes, scheduling refers to making sure that Pods are matched to Nodes so that Kubelet can run them.
 A scheduler watches for newly created Pods that have no Node assigned. For every Pod that the scheduler discovers, the scheduler becomes responsible for finding the best Node for that Pod to run on. The scheduler reaches this placement decision taking into account the scheduling principles described below.
 
