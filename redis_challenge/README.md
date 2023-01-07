@@ -43,11 +43,11 @@ Prerequistes:
   
   * Execute evaluate command to build the image directly in Minikube
     
-    eval $(minikube -p minikube docker-env)
+        eval $(minikube -p minikube docker-env)
     
   * Builds Python-Server image
   
-    docker build . -t python-server:latest
+        docker build . -t python-server:latest
     
 8- Create a deployment for Python-Server
     
